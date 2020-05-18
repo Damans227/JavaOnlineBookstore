@@ -5,6 +5,13 @@ import javax.persistence.*;
  
 @Entity 							// defines class can be mapped to a table in DB
 									//@Table(name="Users_1") This is optional and only used when name of table in DB is different than class name
+
+@NamedQueries(
+		{
+			@NamedQuery(name="Users.findAll",query="SELECT u FROM Users u ORDER BY u.fullName"),
+			@NamedQuery(name="Users.countAll",query="SELECT count(*) FROM Users u")
+		}
+		)
 public class Users {
 	
 	private Integer userId;
