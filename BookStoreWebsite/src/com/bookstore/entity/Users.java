@@ -9,15 +9,29 @@ import javax.persistence.*;
 @NamedQueries(
 		{
 			@NamedQuery(name="Users.findAll",query="SELECT u FROM Users u ORDER BY u.fullName"),
+			@NamedQuery(name="Users.findByEmail",query="SELECT u FROM Users u WHERE u.email = :email"),
 			@NamedQuery(name="Users.countAll",query="SELECT count(*) FROM Users u")
 		}
 		)
 public class Users {
 	
+	public Users() {
+		super();
+		
+	}
 	private Integer userId;
 	private String email;
 	private String fullName;
 	private String password;
+
+	
+	
+	public Users(String email, String fullName, String password) {
+		super();
+		this.email = email;
+		this.fullName = fullName;
+		this.password = password;
+	}
 
 	//Use @Column to specify column name if it is different in DB
 	

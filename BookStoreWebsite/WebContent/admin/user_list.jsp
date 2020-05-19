@@ -13,8 +13,14 @@
 
 	<div align="center">
 		<h2>User Management</h2>
-		<a href="">Create new users</a>
+		<a href="user_form.jsp">Create new users</a>
 		</br></br>
+	</div>
+	<c:if test="${message != null}">
+		<div align="center">
+			<h4><i> ${message} </i></h4>
+	</c:if>
+	
 	</div>
 	<div align="center">
 		<table border="1" cellpadding="5">

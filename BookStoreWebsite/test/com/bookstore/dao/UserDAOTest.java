@@ -162,6 +162,19 @@ public class UserDAOTest {
 		
 	}
 	
+	@Test
+	public void testFindByEmail() {
+		entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
+		entityManager = entityManagerFactory.createEntityManager();
+		userDAO = new UserDAO(entityManager);
+		
+		String email = "David@gmail.com";
+		Users user = userDAO.findByEmail(email);
+		
+		assertNotNull(user);
+	}
+	
+	
 	
 	
 	/*@Test
