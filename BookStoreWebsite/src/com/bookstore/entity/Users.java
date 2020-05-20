@@ -24,7 +24,10 @@ public class Users {
 	private String fullName;
 	private String password;
 
-	
+	public Users(Integer userId, String email, String fullName, String password) {
+		this(email, fullName, password);
+		this.userId = userId;
+	}
 	
 	public Users(String email, String fullName, String password) {
 		super();
