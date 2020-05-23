@@ -17,11 +17,14 @@
 		</br></br>
 	</div>
 	<c:if test="${message != null}">
+	
 		<div align="center">
 			<h4><i> ${message} </i></h4>
+		
 	</c:if>
 	
 	</div>
+	
 	<div align="center">
 		<table border="1" cellpadding="5">
 			<tr>
@@ -50,9 +53,9 @@
 	
 </body>
 <script>
-function confirmDelete(userId){
-	if(confirm('Are you sure you want to delete the user with ID ' + userId + ' ?')){
-		window.location = 'delete_user?id=' + userId;
+function confirmDelete(categoryId){
+	if(confirm('Are you sure you want to delete the category with ID ' + categoryId + ' ?')){
+		window.location = 'delete_category?id=' + categoryId;
 	}
 	
 }

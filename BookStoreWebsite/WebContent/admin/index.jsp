@@ -18,7 +18,7 @@
 		<b>
 		<a href="create_book">New Book</a> &nbsp;
 		<a href="create_user">New User</a> &nbsp;
-		<a href="create_category">New Category</a> &nbsp;
+		<a href="category_form.jsp">New Category</a> &nbsp;
 		<a href="create_customer">New Customer</a> 
 		</b>
 	</div>
