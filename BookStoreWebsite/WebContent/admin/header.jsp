@@ -1,4 +1,7 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <div align="center">
+
 
 	<div>
 
@@ -7,7 +10,8 @@
 	</div>
 	<div>
 
-		Welcome, Admin | <a href="logout">logout</a><br/><br/>
+		Welcome, <c:out value="${sessionScope.useremail}"/>  | <a href="logout">logout</a>
+		<br/><br/>
 
 
 	</div>

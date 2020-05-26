@@ -168,12 +168,24 @@ public class UserDAOTest {
 		entityManager = entityManagerFactory.createEntityManager();
 		userDAO = new UserDAO(entityManager);
 		
-		String email = "David@gmail.com";
+		String email = "Damans227@gmail.com";
 		Users user = userDAO.findByEmail(email);
 		
 		assertNotNull(user);
 	}
 	
+	@Test
+	public void testCheckLoginSuccess() {
+		entityManagerFactory = Persistence.createEntityManagerFactory("BookStoreWebsite");
+		entityManager = entityManagerFactory.createEntityManager();
+		userDAO = new UserDAO(entityManager);
+		
+		String email = "Damans227@gmail.com";
+		String password = "12345";
+		boolean loginResult = userDAO.checkLogin(email, password);
+		
+		assertTrue(loginResult);
+	}
 	
 	
 	

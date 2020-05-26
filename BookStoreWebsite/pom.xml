@@ -45,6 +45,13 @@
   <artifactId>jstl</artifactId>
   <version>1.2</version>
 </dependency>
+
+<dependency>
+    <groupId>org.webjars.bower</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.3.1</version>
+</dependency>
+
     
 </dependencies>
 
