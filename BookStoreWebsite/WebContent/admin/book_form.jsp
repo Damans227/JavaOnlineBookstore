@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,8 +40,8 @@
 	
 	<div align="center">
  		<c:if test = "${book != null}">
-			<form action="update_user" method="post" onsubmit="return validateFormInput()">
-			<input type="hidden" name="userId" value="${user.userId}">
+			<form action="update_book" method="post" onsubmit="return validateFormInput()"  enctype="multipart/form-data">
+			<input type="hidden" name="bookId" value="${book.bookId}"/>
 		</c:if>
 		<c:if test = "${book == null}">
 			<form action="create_book" method="post" onsubmit="return validateFormInput()" enctype="multipart/form-data">	
@@ -52,12 +53,17 @@
 				<td>
 					<select name="category">
 						<c:forEach items="${listCategory}" var="category">
-						<option value="${category.categoryId}">
 						
+							<c:if test="${category.categoryId eq book.category.categoryId}">
+								<option value="${category.categoryId}" selected>
+							</c:if>
+							<c:if test="${category.categoryId ne book.category.categoryId}">
+								<option value="${category.categoryId}" selected>
+							</c:if>
 								${category.name}
-
-						</option>
+				 			</option>
 						</c:forEach>
+					</select>
 				</td>
 		</tr>
 	
@@ -75,13 +81,15 @@
 		</tr>
 			<tr>
 			<td align="right">Published Date:</td>
-			<td align="left"><input type="text" id="publishDate" name="publishDate" size="20" value="${book.publishDate}"/></td>
+			<td align="left"><input type="text" id="publishDate" name="publishDate" size="20" 
+				value="<fmt:formatDate pattern = 'MM/dd/yyyy' value = '${book.updatedOn}'/>" /></td>
 			 
 		</tr>
 		
 		<tr>
 			<td align="right">Book Image:</td>
-			<td align="left"><input type="file" id="bookImage" name="bookImage" size="20" />
+			<td align="left"><input type="file" id="bookImage" name="bookImage" size="20"/>
+			
 			
 			</td>
 		</tr>
@@ -94,7 +102,7 @@
 		
 		<tr>
 			<td align="right">Description:</td>
-			<td align="left"><textarea rows="10" cols="50" name="description" id="description"></textarea></td>
+			<td align="left"><textarea rows="10" cols="50" name="description" id="description">${book.description}</textarea></td>
 		</tr>
 		
 		
